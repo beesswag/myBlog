@@ -41,13 +41,8 @@
                 <div class="card-body default mt-10">
                     <div class="well">
                         @foreach($posts as $post)
-<<<<<<< HEAD
                         <form action="{{route('deleteme', $post->id)}}" method="post">
                         <p>{{$post->post}} 
-=======
-                        <form action="{{route('destroy', $post->id)}}" method="post">
-                        <p>{{$post->post}}
->>>>>>> ad286cd8079e2db9e2122ce50784079f565d0ee7
                             <div class="col-md-8">
                                 <a href=""><button class="btn btn-default btn-primary"> Edit Activity</button></a>
                                 <a href=""><button class="btn btn-default btn-danger" type="submit">Delete</button></a>
