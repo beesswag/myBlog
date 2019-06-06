@@ -19,4 +19,11 @@ class PagesController extends Controller
         $newpost->save();
         return redirect()->back()->with('success', 'New Post added');
     }
+
+    public function delete($id){
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->back();
+    }
 }
+
