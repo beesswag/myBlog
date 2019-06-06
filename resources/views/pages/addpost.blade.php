@@ -8,7 +8,7 @@
     </div>
 @endif
     <div class="col-md-12 text-center well">
-        <form action="{{route('poststore')}}" method="post">
+        <form action="{{route('post.store')}}" method="post">
             {{csrf_field()}}
             <label for="post">Create New Post</label><br>
             <textarea type="text" name="post" placeholder="Enter a new post" cols="30" rows="5"></textarea><br>
