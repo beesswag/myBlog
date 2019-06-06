@@ -20,9 +20,7 @@ class PagesController extends Controller
         return redirect()->back()->with('success', 'New Post added');
     }
 
-<<<<<<< HEAD
 
-=======
     public function deletepost($id){
 
       //  $post=>DB::delete(SELECT * FROM Post where id = ? [$id]);
@@ -32,5 +30,4 @@ class PagesController extends Controller
       return redirect()->back();
 
     }
->>>>>>> 85627f3b3c7cdc1e9c84805b67a0fd64458832cc
-}
+

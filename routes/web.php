@@ -18,6 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@viewPosts')->name('home');
-// Route::get('/home/addnewpost', 'PagesController@addnewpost')->name('addnew.post');
+//Route::get('/home/addnewpost', 'PagesController@addnewpost')->name('addnew.post');
 Route::post('addnewpost/store', 'PagesController@storepost')->name('post.store');
 
