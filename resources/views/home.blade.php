@@ -44,7 +44,7 @@
                         <form action="{{route('deleteme', $post->id)}}" method="post">
                         <p>{{$post->post}} 
                             <div class="col-md-8">
-                                <a href=""><button class="btn btn-default btn-primary"> Edit Activity</button></a>
+                                <a href="{{route('addnew.post')}}"><button class="btn btn-default btn-primary"> Edit Activity</button></a>
                                 <a href=""><button class="btn btn-default btn-danger" type="submit">Delete</button></a>
                             </div>
 
