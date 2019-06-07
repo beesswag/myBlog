@@ -28,7 +28,7 @@
                         <textarea type="text" name="post" placeholder="Enter a new post" cols="30" rows="5"></textarea><br>
                         <input type="submit" value="Add Post" class="btn btn-default btn-success">
                     </form>
-
+                    <div class="well default mt-2"><a href="{{route('viewall')}}"><button class="btn btn-dafault btn-secondary">View all community Posts</button></a></div>
                     </div>
 
 
@@ -41,17 +41,15 @@
                 <div class="card-body default mt-10">
                     <div class="well">
                         @foreach($posts as $post)
-                        <form action="{{route('deleteme', $post->id)}}" method="post">
-                        <p>{{$post->post}} 
-                            <div class="col-md-8">
-                                <a href="{{route('addnew.post')}}"><button class="btn btn-default btn-primary"> Edit Activity</button></a>
-                                <a href=""><button class="btn btn-default btn-danger" type="submit">Delete</button></a>
+                        <p>{{$post->post}}<br> 
+                        <a href="{{route('edit', $post->id)}}"><button class="btn btn-default btn-primary"> Edit the post</button></a>
+                        <form action="{{route('destroy', $post->id)}}" method="post">
+                            <div>
+                                <a><button class="btn btn-default btn-danger" type="submit">Delete the post</button></a>
                             </div>
-
                         </p>
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
-
                         </form>
                         @endforeach
                     </div>

@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::delete('home/{id}','PagesController@deletepost')->name('destroy');
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/addnewpost', 'PagesController@addnewpost')->name('addnew.post');
+Route::get('/home', 'HomeController@viewPosts')->name('home');
+// Route::get('/home/addnewpost', 'PagesController@addnewpost')->name('addnew.post');
 Route::post('addnewpost/store', 'PagesController@storepost')->name('post.store');
-Route::delete('home/{id}', 'PagesController@delete')->name('deleteme');
-
+Route::delete('home/{id}', 'PagesController@deletepost')->name('destroy');
+Route::get('home/viewallposts', 'PagesController@viewAll')->name('viewall');
+Route::get('home/{id}/edit', 'PagesController@edit')->name('edit');
+Route::put('home/{id}/update', 'PagesController@update')->name('post.update');

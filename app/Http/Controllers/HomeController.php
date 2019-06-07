@@ -23,12 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+
+    public function viewPosts()
     {
         $user = User::find(Auth::id());
         $posts = $user->posts()->latest()->get();
         return view('home')->with('posts', $posts);
-    
     }
 
 }
