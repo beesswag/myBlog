@@ -30,4 +30,8 @@ class PagesController extends Controller
       return redirect()->back();
 
     }
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> 9c8fcf1ad868642a80b5958522848aaf6b5271df

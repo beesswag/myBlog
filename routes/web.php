@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@viewPosts')->name('home');
 //Route::get('/home/addnewpost', 'PagesController@addnewpost')->name('addnew.post');
 Route::post('addnewpost/store', 'PagesController@storepost')->name('post.store');
+Route::delete('home/{id}', 'PagesController@deletepost')->name('destroy');
 
