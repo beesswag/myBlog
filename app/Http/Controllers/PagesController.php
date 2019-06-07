@@ -30,4 +30,14 @@ class PagesController extends Controller
       return redirect()->back();
 
     }
+
+    public function show($id){
+        $post = DB::select('select * from posts where id = ?',[$id]);
+        return view('pages.update',['post'=>$post]);
+    }
+    public function editPost(Request $request){
+        $post = $request->input('post');
+        DB::update('update posts set post = ? where id = ?',[ $post ,  $request->id]);
+        return redirect()->back();
+    }
 }
