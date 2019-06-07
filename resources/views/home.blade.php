@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+<style>
+    table tr td{
+        padding:20px;
+    }
+</style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
