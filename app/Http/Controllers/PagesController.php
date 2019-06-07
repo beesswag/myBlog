@@ -41,8 +41,9 @@ class PagesController extends Controller
     }
 
     public function viewall(){
-        $memberspost = Post::orderBy('id', 'desc')->get();
-        return view('pages.viewallposts')->with('memberspost', $memberspost);
+        $memberspost = Post::orderby('id', 'desc')->get();
+        return view('pages.viewallposts')->with('memberspost',$memberspost);
     }
+
 }
 

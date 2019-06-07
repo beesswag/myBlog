@@ -5,11 +5,11 @@
 @if(count($memberspost) > 0)
     <h1 class="text-center">myBlog Community Posts</h1>
     @foreach($memberspost as $memberposts)
-        <div class="well text-center col-md-12">
-            <div class="card card-default mb-5">
+        <input class="well text-center col-md-12">
+            <input class="card card-default mb-5">
                 <h3 href="{{ route('viewall', $memberposts->id)}}">{{$memberposts->post}}</h3>
                 <p>by user {{$memberposts->user->name}} </p>
-            </div>
+            </input>
         </div>
     @endforeach 
 @else
