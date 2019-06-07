@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@viewPosts')->name('home');
 // Route::get('/home/addnewpost', 'PagesController@addnewpost')->name('addnew.post');
 Route::post('addnewpost/store', 'PagesController@storepost')->name('post.store');
-Route::get('home/{id}', 'PagesController@deletepost')->name('destroy');
+Route::delete('home/{id}', 'PagesController@deletepost')->name('destroy');
 Route::get('edit/{id}', 'PagesController@show')->name('edit');
 Route::post('update','PagesController@editPost')->name('updating');
+Route::get('viewall', 'PagesController@viewall')->name('viewall');

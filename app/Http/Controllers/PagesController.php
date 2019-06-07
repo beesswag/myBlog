@@ -20,7 +20,6 @@ class PagesController extends Controller
         return redirect()->back()->with('success', 'New Post added');
     }
 
-
     public function deletepost($id){
 
       //  $post=>DB::delete(SELECT * FROM Post where id = ? [$id]);
@@ -40,4 +39,10 @@ class PagesController extends Controller
         DB::update('update posts set post = ? where id = ?',[ $post ,  $request->id]);
         return redirect()->back();
     }
+
+    public function viewall(){
+        $memberspost = Post::orderBy('id', 'desc')->get();
+        return view('pages.viewallposts')->with('memberspost', $memberspost);
+    }
 }
+
