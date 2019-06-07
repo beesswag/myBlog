@@ -30,28 +30,19 @@ class PagesController extends Controller
 
     }
 
-    public function edit($id){
-        $post = Post::find($id);
-        return view('pages.editpost')->with('post', $post);
+    public function show($id){
+        $post = DB::select('select * from posts where id = ?',[$id]);
+        return view('pages.update',['post'=>$post]);
+    }
+    public function editPost(Request $request){
+        $post = $request->input('post');
+        DB::update('update posts set post = ? where id = ?',[ $post ,  $request->id]);
+        return redirect()->back();
     }
 
-    public function update(Request $request, $id){
-        $request -> validate([
-            'post' => 'required|min:5',
-        ]); 
-        $post = Post::find($id);
-        $post->post = $request->post;
-        $post->save();
-        return redirect()->route('home')->with('success', 'Updated');
-    }
-
-    public function viewAll(){
+    public function viewall(){
         $memberspost = Post::orderBy('id', 'desc')->get();
         return view('pages.viewallposts')->with('memberspost', $memberspost);
-    }
-
-    public function show($id){
-        return Post::find($id);
     }
 }
 
