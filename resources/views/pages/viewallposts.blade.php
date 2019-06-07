@@ -9,18 +9,21 @@
             <div class="card card-default mb-5">
                 <h3 href="{{ route('viewall', $memberposts->id)}}">{{$memberposts->post}}</h3>
                 <p>by user {{$memberposts->user->name}} </p>
-                <Form action ='{{route('commenting')}}' method='post'>
+                <Form action ="{{route('commenting')}}" method='post'>
                   {{csrf_field()}}
                   <label for="post">Comment</label><br>
-                  <textarea type="text" name="comment" placeholder="Enter a new post" cols="30" rows="3"></textarea><br>
+                  <input type="text" name="comment" placeholder="Enter a new comment"><br>
                   <input type="hidden" name="post_id" value="{{$memberposts->id}}">
                   <input type="submit" value="Add comment" class="btn btn-default btn-success">
-
                 </Form>
+                @foreach($postcomment as $comments)
+                    <p>{{$comments->comment}}</p>
+                @endforeach                
             </div>
         </div>
     @endforeach
 @else
     <p>no members</p>
 @endif
+
 @endsection
