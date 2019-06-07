@@ -30,10 +30,5 @@ class HomeController extends Controller
         $posts = $user->posts()->latest()->get();
         return view('home')->with('posts', $posts);
     }
-    public function display(){
-
-        $post = DB:: select('select from posts');
-        return view('home' ['post'=>$post];);
-    }
 
 }

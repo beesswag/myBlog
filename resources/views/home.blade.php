@@ -29,6 +29,8 @@
                         <input type="submit" value="Add Post" class="btn btn-default btn-success">
                     </form>
 
+                    
+
                     </div>
 
 
@@ -46,9 +48,7 @@
                             <div class="col-md-8">
                                 <a href=""><button class="btn btn-default btn-primary"> Edit the post</button></a>
                                 <a href=""><button class="btn btn-default btn-danger" type="submit">Delete the post</button></a>
-                            </div>
-
-                        </p>
+                            </div></p>
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
 
