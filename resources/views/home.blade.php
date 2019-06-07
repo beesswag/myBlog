@@ -46,9 +46,12 @@
                     <table>
                         <div class="well">
                             @foreach($posts as $post)
-                                <tr>
+                    
+                                    <tr>
                                     <td>{{$post->post}}</td>
                                     <td ><a href="{{route('edit',$post->id)}}"><button class="btn btn-default btn-primary"> Edit the post</button></a></td>
+                                    
+                                    <td><a href=""><button>edit</button><a/></td>
                                     <td >
                                         <form action="{{route('destroy', $post->id)}}" method="post">
                                             {{method_field('DELETE')}}
@@ -57,6 +60,7 @@
                                         </form>
                                     </td>
                                 </tr>
+                                
                             @endforeach
                         </div>
                     </table>

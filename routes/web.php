@@ -24,3 +24,5 @@ Route::delete('home/{id}', 'PagesController@deletepost')->name('destroy');
 Route::get('edit/{id}', 'PagesController@show')->name('edit');
 Route::post('update','PagesController@editPost')->name('updating');
 Route::get('viewall', 'PagesController@viewall')->name('viewall');
+Route::get('UpdateComment/{id}','CommentController@showComments')->name('editcom');
+Route::post('updatecomment','CommentController@edit')->name('updating.comment');
