@@ -45,19 +45,23 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body default mt-10">
-                    <div class="well">
-                        @foreach($posts as $post)
-                        <form action="{{route('destroy', $post->id)}}" method="post">
-                        <p>{{$post->post}}
-                            <div class="col-md-8">
-                                <a href=""><button class="btn btn-default btn-primary"> Edit the post</button></a>
-                                <a href=""><button class="btn btn-default btn-danger" type="submit">Delete the post</button></a>
-                            </div></p>
-                            
-
-                        </form>
-                        @endforeach
-                    </div>
+                    <table>
+                        <div class="well">
+                            @foreach($posts as $post)
+                                <tr>
+                                    <td>{{$post->post}}</td>
+                                    <td ><a href="{{route('edit',$post->id)}}"><button class="btn btn-default btn-primary"> Edit the post</button></a></td>
+                                    <td >
+                                        <form action="{{route('destroy', $post->id)}}" method="post">
+                                            {{method_field('DELETE')}}
+                                            @csrf
+                                            <a href=""><button class="btn btn-default btn-danger">Delete the post</button></a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </div>
+                    </table>
                 </div>
             </div>
         </div>
