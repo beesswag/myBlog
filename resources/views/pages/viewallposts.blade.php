@@ -9,6 +9,11 @@
             <div class="card card-default mb-5">
                 <h3 href="{{ route('viewall', $memberposts->id)}}">{{$memberposts->post}}</h3>
                 <p>by user {{$memberposts->user->name}} </p>
+                <p>comments</p>
+                <div class="well">
+                @foreach($comm as $comments)
+                    <p>{{$comments->comment}}</p>
+                </div>
             </div>
         </div>
     @endforeach 

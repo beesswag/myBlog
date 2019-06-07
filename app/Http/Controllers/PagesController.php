@@ -8,6 +8,16 @@ use Auth;
 
 class PagesController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addnewpost(){
         return view('pages.addpost');
     }
@@ -43,6 +53,11 @@ class PagesController extends Controller
     public function viewall(){
         $memberspost = Post::orderBy('id', 'desc')->get();
         return view('pages.viewallposts')->with('memberspost', $memberspost);
+    }
+
+    public function viewComments(){
+        $comm = Comment::orderBy('id','desc')->get();
+        return view('pages.viewallposts')->with('comm', '$comm');
     }
 }
 
