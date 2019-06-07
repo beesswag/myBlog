@@ -5,6 +5,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Post;
 use Auth;
+use App\Comment;
 
 class PagesController extends Controller
 {
@@ -52,12 +53,26 @@ class PagesController extends Controller
 
     public function viewall(){
         $memberspost = Post::orderBy('id', 'desc')->get();
-        return view('pages.viewallposts')->with('memberspost', $memberspost);
+        $postcomment = Comment::orderBy('id','desc')->get();
+        return view('pages.viewallposts')->with('memberspost', $memberspost)->with('postcomment', $postcomment);
     }
 
-    public function viewComments(){
-        $comm = Comment::orderBy('id','desc')->get();
-        return view('pages.viewallposts')->with('comm', '$comm');
-    }
+    // public function store(Request $request){
+    //     $comment = $request->input('comment');
+    //     $user_id = Auth::id();
+    //     $post = Post::findorfail($request->post_id);
+    //     $pos = $request->post_id;
+    //     $comm = new Comment();
+    //     $comm->comment =$comment;
+    //     $comm->user_id =$user_id;
+    //     $comm->post_id =$pos;
+    //     $comm->save();
+    //     return redirect()->back();
+    //   }
+  
+    //   public function viewComments(){
+    //     $postcomment = Comment::orderBy('id','desc')->get();
+    //     return view('pages.viewallposts')->with('postcomment', $postcomment);
+    // }
+
 }
-

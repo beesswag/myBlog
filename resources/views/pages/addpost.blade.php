@@ -15,6 +15,6 @@
             <input type="submit" value="Add Post" class="btn btn-default btn-success">
         </form>
     </div>
-    
+
 
 @endsection
