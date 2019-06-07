@@ -10,7 +10,6 @@ use DB;
 
 class CommentControlller extends Controller
 {
-    //
 
     public function store(Request $request){
       $comment = $request->input('comment');
@@ -22,5 +21,6 @@ class CommentControlller extends Controller
       $comm->user_id =$user_id;
       $comm->post_id =$pos;
       $comm->save();
+      return redirect()-> back();
     }
 }
