@@ -11,14 +11,22 @@
                 <p>by user {{$memberposts->user->name}} </p>
                 <Form action ="{{route('commenting')}}" method='post'>
                   {{csrf_field()}}
-                  <label for="post">Comment</label><br>
-                  <input type="text" name="comment" placeholder="Enter a new comment"><br>
+                  <!-- <label for="post">Comment</label><br> -->
+                  <div class="well mb-2"><input type="text" name="comment" placeholder="Comment"></div> 
                   <input type="hidden" name="post_id" value="{{$memberposts->id}}">
                   <input type="submit" value="Add comment" class="btn btn-default btn-success">
                 </Form>
-                @foreach($postcomment as $comments)
-                    <p>{{$comments->comment}}</p>
-                @endforeach                
+                
+                <div class="card default mt-2 m-2 p-1">
+                    <div class="well">
+                        @foreach($postcomment as $comments)
+                            @if($memberposts->id == $comments->post_id)
+                                <p style="font-size:13px">{{$memberposts->user->name}} : {{$comments->comment}} </p>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                                
             </div>
         </div>
     @endforeach
