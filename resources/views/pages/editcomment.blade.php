@@ -6,7 +6,7 @@
         
         <div class="col-lg-8">
             <div class="card">
-                <div class="card-header"> Edit Post</div>
+                <div class="card-header">Edit </div>
 
                 <div class="card-body default mb-10">
                     <form action="{{route('post.comment', $comment->id)}}" method="post">

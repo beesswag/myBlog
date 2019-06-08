@@ -18,6 +18,10 @@
                 </Form>
                 @foreach($postcomment as $comments)
                     <p>{{$comments->comment}}</p>
+
+                    <td ><a href="{{route('editcom',$comments->id)}}"><button class="btn btn-default btn-primary"> Edit comment</button></a></td>
+ 
+
                 @endforeach                
             </div>
         </div>
