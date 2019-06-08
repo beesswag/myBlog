@@ -17,16 +17,15 @@ class CommentControlller extends Controller
       $user_id = Auth::id();
       $post = Post::findorfail($request->post_id);
       $pos = $request->post_id;
-      $comm = new Comment();
+      $comm = new Comment(); 
       $comm->comment =$comment;
       $comm->user_id =$user_id;
       $comm->post_id =$pos;
       $comm->save();
-
-      return redirect()-> back();
-
+      return redirect()->route('viewall');
     }
-    public function load($id)
+
+    public function loadEditPage($id)
     {
             $comment = DB::select('select * from comments where id = ?',[$id]);
             return view('pages.updateComment',['comments'=>$comment]);
@@ -40,5 +39,17 @@ class CommentControlller extends Controller
     public function viewComments(){
       $postcomment = Comment::orderBy('id','desc')->get();
       return view('pages.viewallposts')->with('postcomment', $postcomment);
-  }
+    }
+
+    public function viewallmyComments(){
+      $mycomment = Comment::orderBy('id', 'desc')->get();
+      $memberspost = Post::orderBy('id', 'desc')->get();
+      return view('pages.viewmycomments')->with('mycomment', $mycomment)->with('memberspost', $memberspost);   
+    }
+
+  //   public function viewall(){
+  //     $memberspost = Post::orderBy('id', 'desc')->get();
+  //     $postcomment = Comment::orderBy('id','desc')->get();
+  //     return view('pages.viewallposts')->with('memberspost', $memberspost)->with('postcomment', $postcomment);
+  // }
 }

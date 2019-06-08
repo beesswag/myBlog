@@ -35,7 +35,7 @@
             <input type="hidden" name="id" value="{{ $comments[0]->id}}" >
             <div class="di"><input type="submit" name="button" value="DONE" ></div>
         </form>
-        <a style="text-decoration: none;" href="{{route('home')}}">
+        <a style="text-decoration: none;" href="{{route('viewmycomments')}}">
         <button>Back</button></a>
     </div>
 @endsection
