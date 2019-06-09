@@ -25,19 +25,6 @@
         border-spacing: 20px;
     }
 
-    .homeButton{
-
-        font-size: 20px;
-        cursor: pointer;
-        display: inline-block;
-        background-color: darkgray;
-        border: none;
-        padding: 15px 32px;
-        text-align: center;
-        font-weight: 200;
-        margin-right: 370px;
-    }
-
 </style>
 @section('content')
     <div class="col-md-12 text-center well">
@@ -48,6 +35,6 @@
             <input type="hidden" name="id" value="{{ $post[0]->id}}" >
             <div class="di"><input type="submit" value="Edit Post" id="btn1" class="btn btn-default btn-success"></div>
         </form>
-        <div class="homeButton"><a style="text-decoration: none;" href="{{route('home')}}">Home</a> </div>
+        <div class="btn btn-dafault btn-secondary"><a style="text-decoration: none; font-size:x-large" href="{{route('home')}}">Home</a> </div>
     </div>
 @endsection

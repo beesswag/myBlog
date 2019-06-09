@@ -5,9 +5,20 @@ use DB;
 use Illuminate\Http\Request;
 use App\Post;
 use Auth;
+use App\Comment;
 
 class PagesController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addnewpost(){
         return view('pages.addpost');
     }
@@ -41,9 +52,14 @@ class PagesController extends Controller
     }
 
     public function viewall(){
+
         $memberspost = Post::orderby('id', 'desc')->get();
-        return view('pages.viewallposts')->with('memberspost',$memberspost);
+        //return view('pages.viewallposts')->with('memberspost',$memberspost);
+
+        //$memberspost = Post::orderBy('id', 'desc')->get();
+
+        $postcomment = Comment::orderBy('id','desc')->get();
+        return view('pages.viewallposts')->with('memberspost', $memberspost)->with('postcomment', $postcomment);
     }
 
 }
-
