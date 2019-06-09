@@ -33,6 +33,7 @@
                         <input type="submit" value="Add Post" class="btn btn-default btn-success">
                     </form>
                     <div class="well default mt-2"><a href="{{route('viewall')}}"><button class="btn btn-dafault btn-secondary">View all community Posts</button></a></div>
+                    <div class="well default mt-2"><a href="{{route('viewmycomments')}}"><button class="btn btn-dafault btn-dark">View all my comments</button></a></div>
                     </div>
 
 
@@ -46,10 +47,12 @@
                     <table>
                         <div class="well">
                             @foreach($posts as $post)
-                                <tr>
+                    
+                                    <tr>
                                     <td>{{$post->post}}</td>
                                     <td ><a href="{{route('edit',$post->id)}}"><button class="btn btn-default btn-primary"> Edit the post</button></a></td>
-                                    <td >
+
+                                      <td >
                                         <form action="{{route('destroy', $post->id)}}" method="post">
                                             {{method_field('DELETE')}}
                                             @csrf
@@ -57,6 +60,7 @@
                                         </form>
                                     </td>
                                 </tr>
+                                
                             @endforeach
                         </div>
                     </table>
