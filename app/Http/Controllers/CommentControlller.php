@@ -6,6 +6,7 @@ use DB;
 use App\Comment;
 use Auth;
 use Illuminate\Http\Request;
+
 use App\Post;
 
 class CommentControlller extends Controller
@@ -17,7 +18,7 @@ class CommentControlller extends Controller
       $user_id = Auth::id();
       $post = Post::findorfail($request->post_id);
       $pos = $request->post_id;
-      $comm = new Comment(); 
+      $comm = new Comment();
       $comm->comment =$comment;
       $comm->user_id =$user_id;
       $comm->post_id =$pos;
@@ -32,9 +33,10 @@ class CommentControlller extends Controller
     }
   public function editComment(Request $request)
   {
+    $user_id = Auth::id();
     $comment = $request->input('comment');
-    DB::update('update comments set comment = ? where id = ?',[ $comment ,  $request->id]);
-    return redirect()->back();
+    DB::update('update comments set comment = ? where id = ? and user_id =?',[ $comment ,  $request->id,$user_id]);
+    return redirect()->route('viewmycomments');
   }
     public function viewComments(){
       $postcomment = Comment::orderBy('id','desc')->get();
@@ -44,7 +46,7 @@ class CommentControlller extends Controller
     public function viewallmyComments(){
       $mycomment = Comment::orderBy('id', 'desc')->get();
       $memberspost = Post::orderBy('id', 'desc')->get();
-      return view('pages.viewmycomments')->with('mycomment', $mycomment)->with('memberspost', $memberspost);   
+      return view('pages.viewmycomments')->with('mycomment', $mycomment)->with('memberspost', $memberspost);
     }
 
   //   public function viewall(){
