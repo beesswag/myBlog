@@ -26,10 +26,7 @@ Route::post('update','PagesController@editPost')->name('updating');
 Route::get('viewall', 'PagesController@viewall')->name('viewall');
 Route::delete('/delete_comment/{id}','CommentControlller@deleteComment')->name('remove');
 Route::post('addedComment/','CommentControlller@store')->name('commenting');
-<<<<<<< HEAD
-
-=======
 Route::get('viewmycomments', 'CommentControlller@viewallmyComments')->name('viewmycomments');
 Route::get('editcomment/{id}' , 'CommentControlller@loadEditPage')->name('editcomment');
 Route::post('updateComment/','CommentControlller@EditComment')->name('updating.comment');
->>>>>>> fd37a727aa5f226567097a6883b21d01a811b907
+
