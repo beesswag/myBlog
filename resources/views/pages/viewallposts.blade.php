@@ -9,7 +9,7 @@
                 <h3 href="{{ route('viewall', $memberposts->id)}}">{{$memberposts->post}}</h3>
                 <p>by user {{$memberposts->user->name}} </p>
             <div>
-                <Form action ='{{route('commenting')}}' method='post'>
+                <Form action ="{{route('commenting')}}" method='post'>
                   {{csrf_field()}}
                   <!-- <label for="post">Comment</label><br> -->
                   <div class="well mb-2"><input type="text" name="comment" placeholder="Comment"></div>
@@ -22,12 +22,12 @@
                         @foreach($postcomment as $comments)
                             @if($memberposts->id == $comments->post_id)
                               @if($comments->user_id == Auth::id())
-                                <p style="font-size:13px">{{$memberposts->user->name}} : {{$comments->comment}} </p>
+                                <p style="font-size:13px">{{$comments->user->name}} : {{$comments->comment}} </p>
                                 <td ><a href="{{route('editcomment',$comments->id)}}"><button class="btn btn-default btn-primary"> Edit comment</button></a></td>
                                     <form action="{{route('remove',$comments->id)}}" method="post">
                                         @csrf
                                         {{method_field('DELETE')}}
-                                        <input type="submit" value="Delete my comment" class="btn btn-default btn-success">
+                                        <input type="submit" value="Delete comment" class="btn btn-default btn-primary">
                                     </form>
 
                                 @else
