@@ -52,27 +52,14 @@ class PagesController extends Controller
     }
 
     public function viewall(){
-        $memberspost = Post::orderBy('id', 'desc')->get();
+
+        $memberspost = Post::orderby('id', 'desc')->get();
+        //return view('pages.viewallposts')->with('memberspost',$memberspost);
+
+        //$memberspost = Post::orderBy('id', 'desc')->get();
+
         $postcomment = Comment::orderBy('id','desc')->get();
         return view('pages.viewallposts')->with('memberspost', $memberspost)->with('postcomment', $postcomment);
     }
-
-    // public function store(Request $request){
-    //     $comment = $request->input('comment');
-    //     $user_id = Auth::id();
-    //     $post = Post::findorfail($request->post_id);
-    //     $pos = $request->post_id;
-    //     $comm = new Comment();
-    //     $comm->comment =$comment;
-    //     $comm->user_id =$user_id;
-    //     $comm->post_id =$pos;
-    //     $comm->save();
-    //     return redirect()->back();
-    //   }
-  
-    //   public function viewComments(){
-    //     $postcomment = Comment::orderBy('id','desc')->get();
-    //     return view('pages.viewallposts')->with('postcomment', $postcomment);
-    // }
 
 }

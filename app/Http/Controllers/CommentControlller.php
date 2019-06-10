@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-namespace App\Http\Controllers;
 use DB;
 use App\Comment;
 use Auth;
@@ -12,11 +11,16 @@ use App\Post;
 class CommentControlller extends Controller
 {
     //
+    public function deleteComment($id){
+        $usr_id = Auth::id();
+        DB::delete('delete from comments where id = ? and user_id = ?',[$id , $usr_id]);
+        return redirect()->back();
+    }
 
     public function store(Request $request){
+        $post = Post::findorfail($request->post_id);
       $comment = $request->input('comment');
       $user_id = Auth::id();
-      $post = Post::findorfail($request->post_id);
       $pos = $request->post_id;
       $comm = new Comment();
       $comm->comment =$comment;

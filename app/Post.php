@@ -10,7 +10,19 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function delete()
+    {
+        $this->comments()->delete();
+        return parent::delete();
+    }
     public function comment(){
       return $this->hasMany('App\Comment');
+
     }
 }
