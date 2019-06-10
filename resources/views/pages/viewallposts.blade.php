@@ -21,10 +21,12 @@
                     <div class="well">
                         @foreach($postcomment as $comments)
                             @if($memberposts->id == $comments->post_id)
+                              @if($comments->user_id == Auth::id())
                                 <p style="font-size:13px">{{$memberposts->user->name}} : {{$comments->comment}} </p>
-                                @if($comments->user_id == Auth::user()->id)
                                 <td ><a href="{{route('editcomment',$comments->id)}}"><button class="btn btn-default btn-primary"> Edit comment</button></a></td>
-                            @endif
+                                @else
+                                  <p style="font-size:13px">{{$memberposts->user->name}} : {{$comments->comment}} </p>
+                                @endif
                             @endif
                         @endforeach
                     </div>
